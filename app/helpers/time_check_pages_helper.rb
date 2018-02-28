@@ -1,0 +1,2 @@
+module TimeCheckPagesHelper
+end
