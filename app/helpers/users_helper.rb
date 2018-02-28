@@ -17,15 +17,21 @@ module UsersHelper
       f['y_logincd'] = user_id
       f['password'] = user_password
       f.submit
+      # binding.pry
     end
-    binding.pry
 
-    agent.page.link_with(href: /module=timesheet/).click
+    begin
+      agent.page.link_with(href: /module=timesheet/).click
+    rescue NoMethodError => ex
+      @error_msg = 'ログインに失敗しました。残念! もう一度お試し下さい！'
+      render 'home'
+    end
 
     table = agent.page.xpath('id("submit_form0")/table').first
     columns = table.xpath('id("title_number1")/td').map(&:text)
     data = table.xpath('tr[@align="center"]').map{|tr| tr.xpath('td').map{|td| td.text.unistrip } }
     data = data.map {|row| columns.zip(row).to_h }
+    # binding.pry
 
     uncounted_rest = data.select{|r| r['休憩時間'] == '00:00' }.map {|r| r['備考'] =~ /休憩(\d+)h/ ? $1.to_i * 60 : 0 }.inject(0, :+)
     escalation_weekdays = data.select{|r| r['カレンダー'] == '平日' }.map {|r| r['エス時間小計'].empty? ? 0 : r['エス時間小計'].parse_duration }.inject(0, :+)
@@ -42,7 +48,7 @@ module UsersHelper
     days_to_work = status['所定労働日数'] - days_worked
     diff = days_to_work * 8*60 - to_work
 
-    msg = "あと#{days_to_work}日 / #{hm(diff, display_sign: true)}"
-    msg << " (未承認" << hm(unaccepted_midnight, display_sign: true) << ")" if unaccepted_midnight > 0
+    @msg = "あと#{days_to_work}日 / #{hm(diff, display_sign: true)}"
+    # msg << " (未承認" << hm(unaccepted_midnight, display_sign: true) << ")" if unaccepted_midnight > 0
   end
 end
