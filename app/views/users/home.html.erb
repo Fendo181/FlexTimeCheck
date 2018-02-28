@@ -1,2 +1,18 @@
-<h1>Users#home</h1>
-<p>Find me in app/views/users/home.html.erb</p>
+<h1>FrexTimeCheck</h1>
+<%= form_for @user , :url => {:action => 'check'} do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
+  <p>勤之助のログインIDとパスワードを入力してください。</p>
+  <div class="field">
+    <%= f.label :id, "ログインID" %>
+    <%= f.text_field :id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "勤怠時間を確認する。" %>
+  </div>
+<% end %>
