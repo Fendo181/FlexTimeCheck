@@ -1,21 +1,11 @@
-<h1>FrexTimeCheck</h1>
-<%= form_for @user , :url => {:action => 'check'} do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
-  <p>勤之助のログインIDとパスワードを入力してください。</p>
-  <div class="field">
-    <%= f.label :id, "ログインID" %>
-    <%= f.text_field :id %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>FrexTimeCheck</h1>
+    <p>勤之助のログインIDとパスワードを入力してください。</p>
+    <%= render 'form' %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.text_field :password %>
-  </div>
+<%= @error_msg %>
+<%= @msg %>
 
-  <div class="actions">
-    <%= f.submit "勤怠時間を確認する。" %>
-  </div>
-<% end %>
-
-<p><%= @error_msg %></p>
-<p><%= @msg %></p>
