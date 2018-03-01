@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     # 入力値のチェック
     @user = User.new(user_params)
     if @user.valid?
-      calculate_time(@user.id, @user.password)
+      begin
+        calculate_time(@user.id, @user.password)
+      rescue
+        @error_msg = 'ログインに失敗しました。残念! もう一度お試し下さい！'
+      end
       render 'home'
     else
       # NG。入力画面を再表示

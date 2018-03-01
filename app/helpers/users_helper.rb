@@ -20,13 +20,7 @@ module UsersHelper
       # binding.pry
     end
 
-    begin
-      agent.page.link_with(href: /module=timesheet/).click
-    rescue NoMethodError => ex
-      @error_msg = 'ログインに失敗しました。残念! もう一度お試し下さい！'
-      render 'home'
-    end
-
+    agent.page.link_with(href: /module=timesheet/).click
     table = agent.page.xpath('id("submit_form0")/table').first
     columns = table.xpath('id("title_number1")/td').map(&:text)
     data = table.xpath('tr[@align="center"]').map{|tr| tr.xpath('td').map{|td| td.text.unistrip } }
