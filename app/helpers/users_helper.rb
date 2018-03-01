@@ -7,13 +7,13 @@ module UsersHelper
     (display_sign ? (sign >= 0 ? '+' : '-') : '') + (hours > 0 ? "#{hours}h" : '') + "#{mins}m"
   end
 
-  def check_kintai(companycd, user_id, user_password)
+  def check_kintai(user_id, user_password)
     agent = Mechanize.new
     agent.user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36'
     agent.get('https://www.4628.jp/')
 
     agent.page.form_with(action: './') do |f|
-      f['y_companycd'] = companycd
+      f['y_companycd'] = 'paperboy'
       f['y_logincd'] = user_id
       f['password'] = user_password
       f.submit

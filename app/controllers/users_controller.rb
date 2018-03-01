@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # 入力値のチェック
     @user = User.new(user_params)
     if @user.valid?
-      check_kintai(companycd='paperboy', @user.id, @user.password)
+      check_kintai(@user.id, @user.password)
       render 'help'
     else
       # NG。入力画面を再表示
