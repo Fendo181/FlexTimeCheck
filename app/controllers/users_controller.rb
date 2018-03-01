@@ -8,14 +8,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       check_kintai(@user.id, @user.password)
-      render 'help'
+      render 'home'
     else
       # NG。入力画面を再表示
       render 'home'
     end
-  end
-
-  def help
   end
 
   private
