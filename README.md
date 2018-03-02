@@ -11,6 +11,7 @@ git clone https://github.com/Fendo181/FlexTimeCheck.git
 cd FlexTimeCheck
 
 bundle install --path vendor/bundler
+rails db:migrate
 
 # local server
 rails s
