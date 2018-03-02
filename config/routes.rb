@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#home'
+  root 'users#index'
   post 'check' => 'users#check'
   #redirect
-  get  "check", to: "users#home"
+  get  "check", to: "users#index"
 end

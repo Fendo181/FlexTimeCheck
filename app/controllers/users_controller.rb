@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def home
+  def index
     @user = User.new
   end
 
@@ -10,12 +10,12 @@ class UsersController < ApplicationController
       begin
         calculate_time(@user.id, @user.password)
       rescue
-        @error_msg = 'ログインに失敗しました。残念! もう一度お試し下さい！'
+        @error_msg = '勤之助ログインに失敗しました！ もう一度お試し下さい。'
       end
-      render 'home'
+      render 'index'
     else
       # NG。入力画面を再表示
-      render 'home'
+      render 'index'
     end
   end
 
