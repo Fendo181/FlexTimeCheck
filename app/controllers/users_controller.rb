@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       begin
         calculate_time(@user.id, @user.password)
       rescue
-        @error_msg = '惜しい！勤之助ログインに失敗しました！ もう一度お試し下さい。'
+        @error_msg = '惜しい！勤之助のログインに失敗しました！ もう一度お試し下さい。'
       end
       render 'index'
     else
