@@ -1,9 +1,13 @@
 <!-- ログイン成功メッセージ -->
-<div class="alert alert-success" role="alert">
-  <%= @msg %>
-</div>
+<% if !@msg.nil? %>
+  <div class="alert alert-success" role="alert">
+    <%= @msg %>
+  </div>
+<% end%>
 
 <!-- ログイン失敗メッセージ -->
-<div class="alert alert-warning" role="alert">
-  <%= @error_msg %>
-</div>
+<% if !@error_msg.nil? %>
+  <div class="alert alert-warning" role="alert">
+    <%= @error_msg %>
+  </div>
+<% end%>
