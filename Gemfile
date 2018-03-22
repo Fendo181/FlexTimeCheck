@@ -51,6 +51,9 @@ group :development, :test do
   gem 'better_errors'
   gem 'byebug'
   gem 'pry-byebug'
+
+  # update
+  gem 'loofah', '>= 2.2.0'
 end
 
 group :development do
