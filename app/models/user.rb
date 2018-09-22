@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User
   #DBを使わない為
   include ActiveModel::Model
 
