@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       begin
-        calculate_time(@user.id, @user.password)
+        calculate_time(@user.login, @user.password)
       rescue
         @error_msg = '惜しい！勤之助のログインに失敗しました！ もう一度お試し下さい。'
       end
@@ -21,6 +21,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:id, :password)
+      params.require(:user).permit(:login, :password)
     end
 end

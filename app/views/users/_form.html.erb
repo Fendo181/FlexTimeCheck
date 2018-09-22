@@ -1,10 +1,10 @@
 <%= form_for @user, :url => {:action => 'check'}  do |f| %>
     <%= render 'shared/error_messages', object: @user %>
 
-    <%= f.label :id, "ログインID" %>
-    <%= f.text_field :id, class: "form-control" %>
+    <%= f.label :login %>
+    <%= f.text_field :login, class: "form-control" %>
 
-    <%= f.label :password, "パスワード" %>
+    <%= f.label :password %>
     <%= f.password_field :password, class: "form-control" %>
 
     <%= f.submit "勤怠時間を確認する。", class: "btn btn-primary" %>

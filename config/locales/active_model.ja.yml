@@ -2,5 +2,5 @@ ja:
   activemodel:
     attributes:
       user:
-        id: ユーザid
+        login: ログインID
         password: パスワード

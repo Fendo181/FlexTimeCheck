@@ -2,8 +2,8 @@ class User
   #DBを使わない為
   include ActiveModel::Model
 
-  attr_accessor :id, :password
+  attr_accessor :login, :password
 
-  validates :id, presence: true
+  validates :login, presence: true
   validates :password, presence: true
 end
