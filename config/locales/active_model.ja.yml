@@ -1,0 +1,6 @@
+ja:
+  activemodel:
+    attributes:
+      user:
+        id: ユーザid
+        password: パスワード
