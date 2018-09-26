@@ -2,7 +2,7 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-3">
       <h1>FlexTimeCheck</h1>
-      <p>勤之助のログインIDとパスワードを入力してください。</p>
+      <p>勤之助の<%= User.human_attribute_name(:login) -%>と<%= User.human_attribute_name(:password) -%>を入力してください。</p>
       <%= render 'form' %>
       <%= render 'login_result' %>
       <%= render 'footer' %>

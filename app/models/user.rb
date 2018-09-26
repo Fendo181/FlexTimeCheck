@@ -1,9 +1,9 @@
-class User < ApplicationRecord
+class User
   #DBを使わない為
   include ActiveModel::Model
 
-  attr_accessor :id, :password, :message
+  attr_accessor :login, :password
 
-  validates :id, :presence => {:message => 'ユーザidを入力してください'}
-  validates :password, :presence => {:message => 'パスワードを入力してください'}
+  validates :login, presence: true
+  validates :password, presence: true
 end
