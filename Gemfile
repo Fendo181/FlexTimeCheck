@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mechanize'
 
 # Bootstrap4
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.2'
 gem 'jquery-rails'
 
 group :development, :test do
