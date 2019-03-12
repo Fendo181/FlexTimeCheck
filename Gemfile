@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -37,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mechanize'
 
 # Bootstrap4
-gem 'bootstrap', '~> 4.1.2'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 #fix Autoprefixer doesn’t support Node v4.8.2.
