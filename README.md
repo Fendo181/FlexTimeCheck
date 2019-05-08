@@ -1,8 +1,6 @@
 ## FlexTimeCheck
 
-フレックスタイムを活用したい社内向けwebサービスです。
-
-https://flex-time-check.lolipop.io/
+フレックスタイムを活用したい社内向けwebサービスでした。
 
 ## Usage
 
